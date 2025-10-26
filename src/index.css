@@ -180,8 +180,15 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
 /* Responsive Design */
 @media (max-width: 992px) {
     /* Stacking for 2-column layouts */
-    .book-container, #about .profile-section-container-new { flex-direction: column; text-align: center; gap: 30px; }
-    .book-info, #about .profile-content-new { text-align: center; padding: 0; }
+    .book-container, #about .profile-section-container-new { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 40px;
+    }
+    .book-info, #about .profile-content-new { 
+        text-align: center; 
+        padding: 0; 
+    }
     
     /* Reset profile columns for stacking */
     #about .profile-image-column, #about .profile-content-new {
@@ -189,27 +196,80 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
         max-width: 100%;
     }
 
-    #about .profile-image-column { align-items: center; }
-    #about .profile-pic-new { max-width: 60%; }
-    .book-cover img { transform: rotateY(0deg); }
+    #about .profile-image-column { 
+        align-items: center; 
+    }
+    #about .profile-pic-new { 
+        max-width: 60%; 
+    }
+    .book-cover img { 
+        transform: rotateY(0deg); 
+    }
 }
 
 @media (max-width: 768px) {
-    h1 { font-size: 3.5rem; }
-    h2 { font-size: 2rem; }
-    .section { padding: 80px 20px; }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 1.8rem; }
+    .section { padding: 70px 20px; }
 
-    .navbar { top: 0; left: 0; right: 0; transform: translateX(0); width: 100%; border-radius: 0; padding: 15px 20px; }
-    .nav-container { justify-content: space-between; gap: 0; }
-    .nav-center { flex: 1; }
-    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(26, 26, 26, 0.98); flex-direction: column; padding: 20px; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; margin-top: 0; gap: 15px; }
-    .nav-links.active { display: flex; }
-    .menu-toggle { display: block; }
+    /* Navbar adjustments */
+    .navbar { 
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        transform: translateX(0); 
+        width: 100%; 
+        border-radius: 0; 
+        padding: 15px 20px; 
+    }
+    .nav-container { 
+        justify-content: space-between; 
+        gap: 0; 
+    }
+    .nav-center { 
+        flex: 1; 
+    }
+    .nav-links { 
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        right: 0; 
+        background: rgba(26, 26, 26, 0.98); 
+        flex-direction: column; 
+        padding: 20px; 
+        border-bottom-left-radius: 15px; 
+        border-bottom-right-radius: 15px; 
+        margin-top: 0; 
+        gap: 15px; 
+    }
+    .nav-links.active { 
+        display: flex; 
+    }
+    .menu-toggle { 
+        display: block; 
+    }
+
+    /* Scale down gallery for tablets */
+    #gallery .carousel-container-3d {
+        transform: translate(-50%, -50%) scale(0.85);
+    }
 }
 
 @media (max-width: 480px) {
-    h1 { font-size: 2.8rem; }
-    .section { padding: 60px 15px; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.6rem; margin-bottom: 2rem; }
+    h3 { font-size: 1.2rem; }
+    .section { padding: 50px 20px; }
+
+    #about .profile-pic-new { 
+        max-width: 70%; 
+    }
+
+    /* Scale down gallery for phones */
+    #gallery .carousel-container-3d {
+        transform: translate(-50%, -50%) scale(0.7);
+    }
 }
 
 @keyframes rotation {

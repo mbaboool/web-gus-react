@@ -48,10 +48,10 @@ const Navbar = () => {
     return (
         <nav className={`navbar ${navVisible ? 'visible' : ''}`}>
             <div className="nav-container">
-                <a href="#home" className="logo">Rahasia Keajaiban Doa</a>
+                <a href="#home" className="logo">Gus Baraja</a>
                 <div className="nav-center">
                     <ul className={`nav-links ${menuActive ? 'active' : ''}`} id="navLinks">
-                        <li><a href="#home" className={activeLink === 'home' ? 'active' : ''} onClick={closeMenu}></a></li>
+                        <li><a href="#home" className={activeLink === 'home' ? 'active' : ''} onClick={closeMenu}>Home</a></li>
                         <li><a href="#about" className={activeLink === 'about' ? 'active' : ''} onClick={closeMenu}>Profil</a></li>
                         <li><a href="#book" className={activeLink === 'book' ? 'active' : ''} onClick={closeMenu}>Buku</a></li>
                         <li><a href="#events" className={activeLink === 'events' ? 'active' : ''} onClick={closeMenu}>Acara</a></li>

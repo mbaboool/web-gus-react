@@ -1,0 +1,101 @@
+/* New Profile Section Layout */
+.profile-section-container-new {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline; /* Align based on the first line of text */
+    max-width: 100%;
+    margin: 0 auto;
+    min-height: 90vh;
+    padding: 0 2rem; /* Add some padding to the sides of the overall container */
+}
+
+/* New Left Column Wrapper */
+.profile-image-column {
+    flex: 0 0 45%; /* This is the left column, takes 45% width */
+    max-width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* New Title style */
+.profile-column-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 1rem; /* Space between title and image */
+    padding-left: 2rem; /* Indent the title a bit */
+}
+
+/* Updated Image style */
+.profile-pic-new {
+    width: 100%; /* Image fills its column container */
+    height: auto;
+    object-fit: contain;
+}
+
+/* Right content column */
+.profile-content-new {
+    flex: 1; /* Takes the rest of the space */
+    padding: 0 0 0 4rem; /* Adjust padding to align content */
+    text-align: left;
+    z-index: 1;
+}
+
+.profile-bio p,
+.profile-bio ul {
+    font-size: 1.2rem; /* Reverted font size */
+    margin-bottom: 1.5rem;
+}
+
+.profile-bio ul {
+    list-style-type: disc; /* Use standard bullet points */
+    list-style-position: inside;
+    padding-left: 1rem;
+}
+
+.video-section h3 {
+    font-size: 1.8rem; /* Reverted font size */
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Reverted video height (16:9) */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.cta-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 15px;
+}
+
+.cta-button {
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: #fff;
+    color: #000;
+    border: 1px solid #fff;
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: #fff;
+}

@@ -1,0 +1,90 @@
+{
+  "hero": {
+    "title": "RAHASIA KEAJAIBAN DOA"
+  },
+  "profile": {
+    "name": "Bagus Baraja",
+    "bio": "Assalamualaikum wr. wb.\nSaya Bagus Baraja, seorang Praktisi Spiritual dan Mind Programming. Sebagai penulis buku \"Doa yang Mengubah Masa Depan\" dan seorang mentor, saya berkomitmen untuk membimbing Anda menemukan potensi spiritual dan mental yang luar biasa.\n\nMelalui berbagai platform, saya berbagi wawasan dan teknik praktis untuk:\n* Membuka Gerbang Kesadaran Diri\n* Menguasai Hukum Tarik-Menarik (Law of Attraction)\n* Memprogram Pikiran untuk Kehidupan Berkah dan Sukses\n\nSaya hadir untuk membantu Anda mencapai ketenangan batin, kemakmuran finansial, dan kebahagiaan sejati. Mari kita mulai perjalanan ini bersama.",
+    "youtubeUrl": "https://www.youtube.com/embed/6XSZ_wgQ2vs?si=ntysTslfd9P5sC4M",
+    "profilePic": "/images/GB.JPG"
+  },
+  "book": {
+    "title": "Doa yang Mengubah Masa Depan",
+    "image": "/images/buku.jpg",
+    "description": "Buku ini membahas tentang doa sebagai energi, kekuatan batin, dan jembatan antara hati manusia dengan Sang Pencipta. Di dalamnya, Bagus Baraja membagikan perjalanan hidupnya dan bagaimana doa dapat membawa transformasi spiritual, membuka jalan keluar, melimpahkan rezeki, serta menghadirkan ketenangan. Buku ini bukan hanya panduan praktis untuk berdoa, tetapi juga mengajak pembaca untuk menyadari anugerah Tuhan dalam setiap langkah hidup.",
+    "details": [
+      "Penerbit: Libro Indonesia & RKD, Yogyakarta",
+      "Tebal: 250 Halaman",
+      "Ukuran: 14 x 21 cm"
+    ],
+    "buyLink": "https://id.shp.ee/Y541xVa"
+  },
+  "events": {
+    "title": "ACARA MENDATANG",
+    "items": [
+      {
+        "title": "WEBINAR (RUANG NGOPI)",
+        "description": "Belajar teknik spiritual secara online setiap dua minggu.",
+        "image": "/images/webinar.png"
+      },
+      {
+        "title": "SEMINAR (TEMU JIWA)",
+        "description": "Acara tatap muka untuk berbagi pengalaman spiritual.",
+        "image": "/images/seminar-sby.jpg"
+      },
+      {
+        "title": "BOOTCAMP (PESANTREN JIWA)",
+        "description": "Program intensif 3 bulan untuk transformasi hidup holistik.",
+        "image": "/images/bootcamp-jogja.JPG"
+      }
+    ]
+  },
+  "gallery": {
+    "title": "MOMEN-MOMEN INSPIRATIF",
+    "items": [
+      { "image": "/images/seminar-jakarta.JPG" },
+      { "image": "/images/webinar31okt.jpg" },
+      { "image": "/images/bootcamp-2.JPG" },
+      { "image": "/images/privat.jpg" },
+      { "image": "/images/bootcamp-jogja.JPG" },
+      { "image": "/images/seminar-sby.jpg" }
+    ]
+  },
+  "testimonials": {
+    "title": "APA KATA MEREKA",
+    "items": [
+      {
+        "name": "Ahmad S.",
+        "feedback": "\"Ilmu yang diajarkan Gus Baraja benar-benar mengubah cara pandang saya terhadap rezeki. Alhamdulillah, setelah ikut kelasnya, pintu rezeki terasa lebih mudah terbuka.\"",
+        "source": "Peserta Webinar"
+      },
+      {
+        "name": "Dewi K.",
+        "feedback": "\"Saya dulu penuh dengan kecemasan dan ketakutan. Melalui bimbingan di Pesantren Jiwa, saya menemukan ketenangan yang selama ini saya cari. Terima kasih, Gus.\"",
+        "source": "Alumni Pesantren Jiwa"
+      },
+      {
+        "name": "Budi P.",
+        "feedback": "\"Awalnya ragu, tapi setelah konsultasi privat, masalah bisnis saya yang macet berbulan-bulan akhirnya menemukan titik terang. Luar biasa.\"",
+        "source": "Klien Konsultasi"
+      }
+    ]
+  },
+  "consultation": {
+    "title": "KONSULTASI LANGSUNG DENGAN BAGUS BARAJA",
+    "subtitle": "JADWALKAN KONSULTASI ANDA",
+    "fields": {
+      "name": "Nama Lengkap",
+      "whatsapp": "No. WhatsApp",
+      "date": "Tanggal Konsultasi",
+      "time": "Waktu Konsultasi",
+      "problem": "Permasalahan Utama"
+    },
+    "timeOptions": [
+      "09:00-11.00 WIB",
+      "13:00-15.00 WIB",
+      "19:30-21.30 WIB"
+    ],
+    "buttonText": "Kirim ke WhatsApp Admin"
+  }
+}

@@ -99,6 +99,13 @@
     margin: 0;
 }
 
+/* Custom property for animation */
+@property --translate-z {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: -3000px;
+}
+
 /* Animation Logic */
 .testimonial-item {
     transform: translateZ(var(--translate-z)) translate(var(--x), var(--y));
@@ -121,9 +128,12 @@
     0% {
         opacity: 0;
         --translate-z: -5000px;
+        transform: translateZ(var(--translate-z)) translate(var(--x), var(--y));
     }
     100% {
         --translate-z: 2000px;
+        /* Menambahkan sedikit perubahan posisi untuk membuat gerakan lebih acak */
+        transform: translateZ(var(--translate-z)) translate(calc(var(--x) * 0.5), calc(var(--y) * 0.5));
     }
 }
 

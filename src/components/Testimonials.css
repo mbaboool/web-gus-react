@@ -39,6 +39,18 @@
     pointer-events: none;
 }
 
+/* Area deadzone di tengah untuk testimonial */
+.testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;  /* Lebar deadzone */
+    height: 40vh; /* Tinggi deadzone */
+    z-index: 5;   /* Di bawah judul tapi di atas testimonial */
+}
+
 .testimonial-slider {
     position: absolute;
     width: 100%;

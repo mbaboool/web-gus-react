@@ -90,9 +90,28 @@ const Testimonials = () => {
             }
             
             const positionedTestimonials = shuffled.slice(0, displayCount).map(t => {
-                // Menggunakan rentang penuh untuk posisi acak (-45vw hingga 45vw dan -40vh hingga 40vh)
-                const randomX = (Math.random() * 90) - 45; // Menghasilkan angka antara -45 dan 45
-                const randomY = (Math.random() * 80) - 40; // Menghasilkan angka antara -40 dan 40
+                const deadZoneX = 15; // vw - area tengah horizontal untuk dihindari
+                const deadZoneY = 20; // vh - area tengah vertikal untuk dihindari
+                
+                let randomX, randomY;
+
+                // Menghasilkan posisi X dengan menghindari deadzone tengah
+                if (Math.random() < 0.5) {
+                    // Kiri dari deadzone
+                    randomX = -(Math.random() * (45 - deadZoneX)) - deadZoneX;
+                } else {
+                    // Kanan dari deadzone
+                    randomX = (Math.random() * (45 - deadZoneX)) + deadZoneX;
+                }
+
+                // Menghasilkan posisi Y dengan menghindari deadzone tengah
+                if (Math.random() < 0.5) {
+                    // Atas dari deadzone
+                    randomY = -(Math.random() * (40 - deadZoneY)) - deadZoneY;
+                } else {
+                    // Bawah dari deadzone
+                    randomY = (Math.random() * (40 - deadZoneY)) + deadZoneY;
+                }
 
                 return {
                     ...t,

@@ -398,6 +398,15 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
     .book-cover img { 
         transform: rotateY(0deg); 
     }
+    
+    /* Adjust consultation section for mobile */
+    .consultation-section-container {
+        gap: 20px;
+    }
+    
+    .consultation-column, .testimonial-column {
+        padding: 20px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -416,11 +425,18 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
         border-radius: 0; 
         padding: 10px 20px; 
         background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
     }
     .nav-container { 
         justify-content: space-between; 
     }
-    .logo { font-size: 1.3rem; }
+    .logo { 
+        font-size: 1.3rem; 
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 40%;
+    }
     .nav-center { 
         flex: 1; 
         display: flex;
@@ -432,22 +448,28 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
         top: 100%; 
         left: 0; 
         right: 0; 
-        background: #111; 
+        background: rgba(17, 17, 17, 0.95); 
+        backdrop-filter: blur(10px);
         flex-direction: column; 
         width: 100%;
         padding: 15px 0; 
         border-bottom: 1px solid #333;
         gap: 0;
         z-index: 999;
+        max-height: 80vh;
+        overflow-y: auto;
     }
     .nav-links li {
         width: 100%;
         text-align: center;
+        padding: 0;
     }
     .nav-links a {
         padding: 15px 0;
         display: block;
         width: 100%;
+        text-align: center;
+        font-size: 1.1rem;
     }
     .nav-links a:hover, .nav-links a.active {
         background: rgba(255, 255, 255, 0.1);
@@ -465,6 +487,16 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
         width: 40px;
         height: 40px;
         z-index: 1001;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+    
+    /* Additional mobile adjustments for better UX */
+    .menu-toggle:focus {
+        outline: 2px solid #ffffff;
+        border-radius: 4px;
     }
 
     /* Scale down gallery for tablets */
@@ -514,11 +546,206 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
     .countdown-label {
         font-size: 0.6rem;
     }
+    
+    /* Additional adjustments for very small screens */
+    .consultation-column, .testimonial-column {
+        padding: 15px;
+    }
+    
+    .consultation-form input, .consultation-form select, .consultation-form textarea {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .book-container {
+        gap: 20px;
+    }
+    
+    .event-card {
+        margin-bottom: 20px;
+    }
+    
+    .hero-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
 
 @keyframes rotation {
     from { transform: rotateY(0deg); }
     to { transform: rotateY(360deg); }
+}
+
+/* Modal and Lightbox Styles */
+.event-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Keep the rounded corners */
+    cursor: pointer;
+}
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    cursor: pointer;
+}
+
+.lightbox-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.register-button {
+    background-color: #ffc107;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: auto; /* Pushes button to the bottom */
+    transition: background-color 0.3s, transform 0.2s; /* Add transform transition */
+}
+
+.register-button:hover {
+    background-color: #e0a800;
+}
+
+.register-button:active {
+    transform: scale(0.96); /* Click animation */
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    color: #333;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+/* Mobile responsiveness for modals */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .modal-content input {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .lightbox-image {
+        max-width: 95vw;
+        max-height: 80vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 15px;
+    }
+    
+    .modal-content input {
+        padding: 8px;
+        font-size: 12px;
+    }
+    
+    .register-button, .submit-button {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .close-button {
+        font-size: 24px;
+        top: 5px;
+        right: 10px;
+    }
 }
 
 .submit-message {

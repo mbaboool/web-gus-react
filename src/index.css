@@ -90,10 +90,31 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
 
 /* Events Section */
 .events-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; width: 100%; }
-.event-card { background: #1c1c1c; border-radius: 15px; overflow: hidden; text-align: left; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.event-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
-.event-image { width: 100%; height: 200px; object-fit: cover; }
-.event-info { padding: 20px; }
+.event-card {
+    background: #1c1c1c;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.event-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
 
 /* 3D Gallery Section */
 #gallery .carousel-container-3d {
@@ -140,10 +161,29 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
     object-fit: cover;
 }
 
-#carousel-3d img:hover {
+#carousel-3d figure:hover img {
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
     transform: scale(1.2,1.2);
+}
+
+#carousel-3d figure figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* Prevent caption from blocking hover on figure */
+}
+
+#carousel-3d figure:hover figcaption {
+    opacity: 1;
 }
 
 /* Testimonials Section */

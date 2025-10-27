@@ -48,10 +48,10 @@ const Navbar = () => {
     return (
         <nav className={`navbar ${navVisible ? 'visible' : ''}`}>
             <div className="nav-container">
-                <a href="#home" className="logo">Gus Baraja</a>
+                <a href="#home" className="logo">Rahasia Keajaiban Doa</a>
                 <div className="nav-center">
                     <ul className={`nav-links ${menuActive ? 'active' : ''}`} id="navLinks">
-                        <li><a href="#home" className={activeLink === 'home' ? 'active' : ''} onClick={closeMenu}>Home</a></li>
+                        <li><a href="#home" className={activeLink === 'home' ? 'active' : ''} onClick={closeMenu}></a></li>
                         <li><a href="#about" className={activeLink === 'about' ? 'active' : ''} onClick={closeMenu}>Profil</a></li>
                         <li><a href="#book" className={activeLink === 'book' ? 'active' : ''} onClick={closeMenu}>Buku</a></li>
                         <li><a href="#events" className={activeLink === 'events' ? 'active' : ''} onClick={closeMenu}>Acara</a></li>
@@ -103,24 +103,105 @@ const Book = () => (
     </section>
 );
 
-const Events = () => (
-    <section id="events" className="section">
-        <div className="container">
-            <h2>{content.events.title}</h2>
-            <div className="events-container">
-                {content.events.items.map((event, index) => (
-                    <div key={index} className="event-card">
-                        <img src={event.image} alt={event.title} className="event-image"/>
-                        <div className="event-info">
-                            <h3>{event.title}</h3>
-                            <p>{event.description}</p>
+const Events = () => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [selectedEvent, setSelectedEvent] = useState(null);
+    const [formData, setFormData] = useState({ name: '', whatsapp: '' });
+    const [lightboxImage, setLightboxImage] = useState(null);
+
+    const openModal = (event) => {
+        setSelectedEvent(event);
+        setModalIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalIsOpen(false);
+        setSelectedEvent(null);
+        setFormData({ name: '', whatsapp: '' });
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const adminWhatsApp = '6285150757558';
+        const message = `Halo, saya ingin mendaftar untuk acara "${selectedEvent.title}".\nNama: ${formData.name}\nNo. WhatsApp: ${formData.whatsapp}`;
+        const whatsappUrl = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+        closeModal();
+    };
+
+    const openLightbox = (image) => {
+        setLightboxImage(image);
+    };
+
+    const closeLightbox = () => {
+        setLightboxImage(null);
+    };
+
+    return (
+        <section id="events" className="section">
+            <div className="container">
+                <h2>{content.events.title}</h2>
+                <div className="events-container">
+                    {content.events.items.map((event, index) => (
+                        <div key={index} className="event-card">
+                            <img 
+                                src={event.image} 
+                                alt={event.title} 
+                                className="event-image"
+                                onClick={() => openLightbox(event.image)}
+                            />
+                            <div className="event-info">
+                                <h3>{event.title}</h3>
+                                <p>{event.description}</p>
+                                <button onClick={() => openModal(event)} className="register-button">Daftar Sekarang</button>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-        </div>
-    </section>
-);
+
+            {modalIsOpen && selectedEvent && (
+                <div className="modal-overlay" onClick={closeModal}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="close-button" onClick={closeModal}>&times;</button>
+                        <h3>Pendaftaran: {selectedEvent.title}</h3>
+                        <form onSubmit={handleSubmit}>
+                            <input 
+                                type="text" 
+                                name="name" 
+                                placeholder="Nama Lengkap" 
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                required 
+                            />
+                            <input 
+                                type="tel" 
+                                name="whatsapp" 
+                                placeholder="No. WhatsApp (e.g., 08123456789)" 
+                                value={formData.whatsapp}
+                                onChange={handleInputChange}
+                                required 
+                            />
+                            <button type="submit" className="submit-button">Daftar via WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+            )}
+
+            {lightboxImage && (
+                <div className="lightbox-overlay" onClick={closeLightbox}>
+                    <button className="close-lightbox" onClick={closeLightbox}>&times;</button>
+                    <img src={lightboxImage} alt="Full size view" className="lightbox-image" onClick={(e) => e.stopPropagation()} />
+                </div>
+            )}
+        </section>
+    );
+};
 
 const Gallery = () => {
     const items = content.gallery.items;
@@ -141,7 +222,8 @@ const Gallery = () => {
                                     transform: `rotateY(${index * angle}deg) translateZ(${translateZ}px)` 
                                 }}
                             >
-                                <img src={item.image} alt={`Gallery image ${index + 1}`} />
+                                <img src={item.image} alt={item.caption || `Gallery image ${index + 1}`} />
+                                <figcaption>{item.caption}</figcaption>
                             </figure>
                         ))}
                     </div>

@@ -25,29 +25,29 @@
       {
         "title": "WEBINAR (RUANG NGOPI)",
         "description": "Belajar teknik spiritual secara online setiap dua minggu.",
-        "image": "/images/webinar.png"
+        "image": "/images/webinar31okt.jpg"
       },
       {
         "title": "SEMINAR (TEMU JIWA)",
         "description": "Acara tatap muka untuk berbagi pengalaman spiritual.",
-        "image": "/images/seminar-sby.jpg"
+        "image": "/images/seminar8nov.jpg"
       },
       {
         "title": "BOOTCAMP (PESANTREN JIWA)",
         "description": "Program intensif 3 bulan untuk transformasi hidup holistik.",
-        "image": "/images/bootcamp-jogja.JPG"
+        "image": "/images/bootcamp.png"
       }
     ]
   },
   "gallery": {
     "title": "MOMEN-MOMEN INSPIRATIF",
     "items": [
-      { "image": "/images/seminar-jakarta.JPG" },
-      { "image": "/images/webinar31okt.jpg" },
-      { "image": "/images/bootcamp-2.JPG" },
-      { "image": "/images/privat.jpg" },
-      { "image": "/images/bootcamp-jogja.JPG" },
-      { "image": "/images/seminar-sby.jpg" }
+      { "image": "/images/bootcamp-2.JPG", "caption": "Seminar 'Temu Jiwa' di Jakarta" },
+      { "image": "/images/tmjiwa-jogja.png", "caption": "Seminar 'Temu Jiwa' di Yogyakarta" },
+      { "image": "/images/bootcamp-2.JPG", "caption": "Peserta 'Pesantren Jiwa' di Yogyakarta" },
+      { "image": "/images/privat.jpg", "caption": "Sesi Konsultasi Privat" },
+      { "image": "/images/webinar.png", "caption": "Webinar 'Ruang Ngopi'" },
+      { "image": "/images/seminar-sby.jpg", "caption": "Seminar 'Temu Jiwa' di Surabaya" }
     ]
   },
   "testimonials": {

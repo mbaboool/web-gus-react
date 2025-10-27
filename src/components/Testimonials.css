@@ -44,6 +44,69 @@
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
+    /* Mengurangi durasi animasi untuk perangkat mobile agar lebih cepat */
+    animation: rotate var(--duration, 60s) linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+/* Mobile responsiveness for testimonials */
+@media (max-width: 768px) {
+    .testimonials-section .title {
+        font-size: clamp(1.5rem, 6vw, 3rem);
+    }
+    
+    .testimonial-item {
+        width: clamp(200px, 50vw, 350px);
+        padding: 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .testimonial-item .feedback {
+        font-size: 1rem;
+    }
+    
+    .testimonial-slider {
+        width: 100%;
+        height: 100%;
+        /* Mempercepat animasi sedikit di perangkat mobile */
+        --duration: 45s;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-section .title {
+        font-size: clamp(1.2rem, 6vw, 2.5rem);
+    }
+    
+    .testimonial-item {
+        width: clamp(180px, 60vw, 300px);
+        padding: 1.2rem;
+        font-size: 0.8rem;
+    }
+    
+    .testimonial-item .feedback {
+        font-size: 0.9rem;
+    }
+    
+    .testimonial-item .author {
+        font-size: 0.9rem;
+    }
+    
+    .testimonial-item .source {
+        font-size: 0.75rem;
+    }
+    
+    .testimonial-slider {
+        --duration: 35s;
+    }
 }
 
 .testimonial-item {
@@ -112,5 +175,51 @@
     }
     100% {
         --translate-z: 2000px;
+    }
+}
+
+/* Mobile responsiveness for testimonials */
+@media (max-width: 768px) {
+    .testimonials-section .title {
+        font-size: clamp(1.5rem, 6vw, 3rem);
+    }
+    
+    .testimonial-item {
+        width: clamp(200px, 50vw, 350px);
+        padding: 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .testimonial-item .feedback {
+        font-size: 1rem;
+    }
+    
+    .testimonial-slider {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-section .title {
+        font-size: clamp(1.2rem, 6vw, 2.5rem);
+    }
+    
+    .testimonial-item {
+        width: clamp(180px, 60vw, 300px);
+        padding: 1.2rem;
+        font-size: 0.8rem;
+    }
+    
+    .testimonial-item .feedback {
+        font-size: 0.9rem;
+    }
+    
+    .testimonial-item .author {
+        font-size: 0.9rem;
+    }
+    
+    .testimonial-item .source {
+        font-size: 0.75rem;
     }
 }

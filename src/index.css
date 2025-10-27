@@ -442,6 +442,33 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
         display: flex;
         justify-content: flex-end;
     }
+    
+    /* Center navbar elements for mobile */
+    @media (max-width: 768px) {
+        .nav-container {
+            justify-content: center;
+            position: relative;
+        }
+        
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 998;
+        }
+        
+        .nav-center {
+            position: absolute;
+            right: 20px;
+            justify-content: flex-end;
+        }
+        
+        .menu-toggle {
+            position: absolute;
+            right: 20px;
+            z-index: 1001;
+        }
+    }
     .nav-links { 
         display: none; 
         position: absolute; 

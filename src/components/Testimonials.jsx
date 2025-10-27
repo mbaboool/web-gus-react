@@ -19,7 +19,19 @@ const negativeKeywords = [
 const Testimonials = () => {
     const [allTestimonials, setAllTestimonials] = useState([]);
     const [displayedTestimonials, setDisplayedTestimonials] = useState([]);
-    const displayCount = 15; // Increased from 10
+    const [displayCount, setDisplayCount] = useState(15); // Default untuk desktop
+    
+    // Menentukan jumlah testimonial berdasarkan ukuran layar
+    useEffect(() => {
+        const updateDisplayCount = () => {
+            setDisplayCount(window.innerWidth <= 768 ? 8 : 15);
+        };
+        
+        updateDisplayCount();
+        window.addEventListener('resize', updateDisplayCount);
+        
+        return () => window.removeEventListener('resize', updateDisplayCount);
+    }, []);
 
     useEffect(() => {
         const fetchTestimonials = async () => {
@@ -78,24 +90,9 @@ const Testimonials = () => {
             }
             
             const positionedTestimonials = shuffled.slice(0, displayCount).map(t => {
-                const deadZoneX = 15; // vw
-                const deadZoneY = 20; // vh
-
-                let randomX, randomY;
-
-                // Avoid horizontal center
-                if (Math.random() < 0.5) {
-                    randomX = -deadZoneX - (Math.random() * (45 - deadZoneX));
-                } else {
-                    randomX = deadZoneX + (Math.random() * (45 - deadZoneX));
-                }
-
-                // Avoid vertical center
-                if (Math.random() < 0.5) {
-                    randomY = -deadZoneY - (Math.random() * (40 - deadZoneY));
-                } else {
-                    randomY = deadZoneY + (Math.random() * (40 - deadZoneY));
-                }
+                // Menggunakan rentang penuh untuk posisi acak (-45vw hingga 45vw dan -40vh hingga 40vh)
+                const randomX = (Math.random() * 90) - 45; // Menghasilkan angka antara -45 dan 45
+                const randomY = (Math.random() * 80) - 40; // Menghasilkan angka antara -40 dan 40
 
                 return {
                     ...t,

@@ -16,6 +16,8 @@ const Navbar = () => {
     const [navVisible, setNavVisible] = useState(false);
 
     useEffect(() => {
+        let lastScrollY = window.scrollY;
+        
         const handleScroll = () => {
             const sections = document.querySelectorAll('.section');
             let current = 'home';
@@ -27,11 +29,11 @@ const Navbar = () => {
             });
             setActiveLink(current);
 
-            if (window.scrollY > window.innerHeight * 0.9) {
-                setNavVisible(true);
-            } else {
-                setNavVisible(false);
-            }
+            // Menentukan apakah navbar harus terlihat
+            const shouldShowNav = window.scrollY > window.innerHeight * 0.3 || window.scrollY < lastScrollY;
+            setNavVisible(shouldShowNav);
+            
+            lastScrollY = window.scrollY;
         };
         window.addEventListener('scroll', handleScroll);
         handleScroll();

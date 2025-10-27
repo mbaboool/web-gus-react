@@ -6,7 +6,15 @@
     "name": "Bagus Baraja",
     "bio": "Assalamualaikum wr. wb.\nSaya Bagus Baraja, seorang Praktisi Spiritual dan Mind Programming. Sebagai penulis buku \"Doa yang Mengubah Masa Depan\" dan seorang mentor, saya berkomitmen untuk membimbing Anda menemukan potensi spiritual dan mental yang luar biasa.\n\nMelalui berbagai platform, saya berbagi wawasan dan teknik praktis untuk:\n* Membuka Gerbang Kesadaran Diri\n* Menguasai Hukum Tarik-Menarik (Law of Attraction)\n* Memprogram Pikiran untuk Kehidupan Berkah dan Sukses\n\nSaya hadir untuk membantu Anda mencapai ketenangan batin, kemakmuran finansial, dan kebahagiaan sejati. Mari kita mulai perjalanan ini bersama.",
     "youtubeUrl": "https://www.youtube.com/embed/6XSZ_wgQ2vs?si=ntysTslfd9P5sC4M",
-    "profilePic": "/images/GB.JPG"
+    "profilePic": "/images/GB.JPG",
+    "email": "gusbarajaofficial369@gmail.com",
+    "phone": "+6285150757558",
+    "socials": [
+      { "name": "YouTube", "url": "https://www.youtube.com/@BagusBaraja" },
+      { "name": "Instagram", "url": "https://www.instagram.com/gusbaraja/" },
+      { "name": "TikTok", "url": "https://www.tiktok.com/@bagus_baraja" },
+      { "name": "Facebook", "url": "https://www.facebook.com/profile.php?id=61582221054396" }
+    ]
   },
   "book": {
     "title": "Doa yang Mengubah Masa Depan",
@@ -22,29 +30,32 @@
   "events": {
     "title": "ACARA MENDATANG",
     "items": [
-      {
-        "title": "WEBINAR (RUANG NGOPI)",
-        "description": "Belajar teknik spiritual secara online setiap dua minggu.",
-        "image": "/images/webinar31okt.jpg"
-      },
-      {
-        "title": "SEMINAR (TEMU JIWA)",
-        "description": "Acara tatap muka untuk berbagi pengalaman spiritual.",
-        "image": "/images/seminar8nov.jpg"
-      },
-      {
-        "title": "BOOTCAMP (PESANTREN JIWA)",
-        "description": "Program intensif 3 bulan untuk transformasi hidup holistik.",
-        "image": "/images/bootcamp.png"
-      }
+        {
+            "title": "Webinar (Ruang Ngopi)",
+            "description": "Belajar teknik spiritual secara online setiap minggu.",
+            "image": "/images/webinar31okt.jpg",
+            "date": "2025-10-31T19:30:00"
+        },
+        {
+            "title": "Seminar (Temu Jiwa)",
+            "description": "Acara untuk berbagi pengalaman spiritual secara langsung.",
+            "image": "/images/seminar8nov.jpg",
+            "date": "2025-11-08T14:00:00"
+        },
+        {
+            "title": "Bootcamp Spiritual",
+            "description": "Program Intensif Transformasi Diri",
+            "image": "/images/bootcamp.png",
+            "date": null
+        }
     ]
-  },
+},
   "gallery": {
     "title": "MOMEN-MOMEN INSPIRATIF",
     "items": [
       { "image": "/images/bootcamp-2.JPG", "caption": "Seminar 'Temu Jiwa' di Jakarta" },
       { "image": "/images/tmjiwa-jogja.png", "caption": "Seminar 'Temu Jiwa' di Yogyakarta" },
-      { "image": "/images/bootcamp-2.JPG", "caption": "Peserta 'Pesantren Jiwa' di Yogyakarta" },
+      { "image": "/images/bootcamp-2.JPG", "caption": "Peserta 'Pesantren Jiwa' di Jakarta" },
       { "image": "/images/privat.jpg", "caption": "Sesi Konsultasi Privat" },
       { "image": "/images/webinar.png", "caption": "Webinar 'Ruang Ngopi'" },
       { "image": "/images/seminar-sby.jpg", "caption": "Seminar 'Temu Jiwa' di Surabaya" }
@@ -55,7 +66,7 @@
     "items": [
       {
         "name": "Ahmad S.",
-        "feedback": "\"Ilmu yang diajarkan Gus Baraja benar-benar mengubah cara pandang saya terhadap rezeki. Alhamdulillah, setelah ikut kelasnya, pintu rezeki terasa lebih mudah terbuka.\"",
+        "feedback": "\"Ilmu yang diajarkan Bagus Baraja benar-benar mengubah cara pandang saya terhadap rezeki. Alhamdulillah, setelah ikut kelasnya, pintu rezeki terasa lebih mudah terbuka.\"",
         "source": "Peserta Webinar"
       },
       {
@@ -86,5 +97,18 @@
       "19:30-21.30 WIB"
     ],
     "buttonText": "Kirim ke WhatsApp Admin"
+  },
+  "testimonial_form": {
+    "title": "Kirim Testimoni Anda",
+    "subtitle": "Bagikan pengalaman Anda bersama kami",
+    "fields": {
+      "name": "Nama Anda",
+      "source": "Asal (Contoh: Peserta Webinar)",
+      "message": "Tuliskan testimoni Anda di sini..."
+    },
+    "buttonText": "Kirim Testimoni"
+  },
+  "footer": {
+    "tagline": "Membantu Anda Menemukan Keajaiban Diri."
   }
 }

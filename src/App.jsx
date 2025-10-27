@@ -3,6 +3,8 @@ import './index.css';
 import Profile from './components/Profile';
 import Fluid from './components/Fluid';
 import content from './content.json';
+import SocialIcon from './components/SocialIcon';
+import Countdown from './components/Countdown';
 
 const Navbar = () => {
     const [menuActive, setMenuActive] = useState(false);
@@ -35,6 +37,18 @@ const Navbar = () => {
     const toggleMenu = () => setMenuActive(!menuActive);
     const closeMenu = () => setMenuActive(false);
 
+    const handleNavClick = (e, targetId) => {
+        e.preventDefault();
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 70, // Adjust for fixed navbar height
+                behavior: 'smooth'
+            });
+        }
+        closeMenu();
+    };
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (!event.target.closest('.navbar')) {
@@ -48,33 +62,46 @@ const Navbar = () => {
     return (
         <nav className={`navbar ${navVisible ? 'visible' : ''}`}>
             <div className="nav-container">
-                <a href="#home" className="logo">Rahasia Keajaiban Doa</a>
+                <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="logo">Rahasia Keajaiban Doa</a>
                 <div className="nav-center">
                     <ul className={`nav-links ${menuActive ? 'active' : ''}`} id="navLinks">
-                        <li><a href="#home" className={activeLink === 'home' ? 'active' : ''} onClick={closeMenu}></a></li>
-                        <li><a href="#about" className={activeLink === 'about' ? 'active' : ''} onClick={closeMenu}>Profil</a></li>
-                        <li><a href="#book" className={activeLink === 'book' ? 'active' : ''} onClick={closeMenu}>Buku</a></li>
-                        <li><a href="#events" className={activeLink === 'events' ? 'active' : ''} onClick={closeMenu}>Acara</a></li>
-                        <li><a href="#gallery" className={activeLink === 'gallery' ? 'active' : ''} onClick={closeMenu}>Galeri</a></li>
-                        <li><a href="#testimonials" className={activeLink === 'testimonials' ? 'active' : ''} onClick={closeMenu}>Testimoni</a></li>
-                        <li><a href="#consultation" className={activeLink === 'consultation' ? 'active' : ''} onClick={closeMenu}>Konsultasi</a></li>
+                        <li><a href="#home" onClick={(e) => handleNavClick(e, 'home')} className={activeLink === 'home' ? 'active' : ''}></a></li>
+                        <li><a href="#about" onClick={(e) => handleNavClick(e, 'about')} className={activeLink === 'about' ? 'active' : ''}>Profil</a></li>
+                        <li><a href="#book" onClick={(e) => handleNavClick(e, 'book')} className={activeLink === 'book' ? 'active' : ''}>Buku</a></li>
+                        <li><a href="#events" onClick={(e) => handleNavClick(e, 'events')} className={activeLink === 'events' ? 'active' : ''}>Acara</a></li>
+                        <li><a href="#gallery" onClick={(e) => handleNavClick(e, 'gallery')} className={activeLink === 'gallery' ? 'active' : ''}>Galeri</a></li>
+                        <li><a href="#testimonials" onClick={(e) => handleNavClick(e, 'testimonials')} className={activeLink === 'testimonials' ? 'active' : ''}>Testimoni</a></li>
+                        <li><a href="#consultation" onClick={(e) => handleNavClick(e, 'consultation')} className={activeLink === 'consultation' ? 'active' : ''}>Konsultasi</a></li>
                     </ul>
                 </div>
-                <button className="menu-toggle" id="menuToggle" onClick={toggleMenu}>☰</button>
+                <button className="menu-toggle" id="menuToggle" onClick={toggleMenu}>&#8801;</button>
             </div>
         </nav>
     );
 };
 
-const Home = () => (
-    <section id="home" className="section">
-        <Fluid />
-        <div className="hero-content">
-            <h1>{content.hero.title}</h1>
-            <a href="#about" className="hero-button">PELAJARI LEBIH DALAM</a>
-        </div>
-    </section>
-);
+const Home = () => {
+    const handleHeroClick = (e) => {
+        e.preventDefault();
+        const targetElement = document.getElementById('about');
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 70, // Adjust for fixed navbar height
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    return (
+        <section id="home" className="section">
+            <Fluid />
+            <div className="hero-content">
+                <h1>{content.hero.title}</h1>
+                <a href="#about" onClick={handleHeroClick} className="hero-button">PELAJARI LEBIH DALAM</a>
+            </div>
+        </section>
+    );
+};
 
 const About = () => (
     <section id="about" className="section">
@@ -158,6 +185,11 @@ const Events = () => {
                             <div className="event-info">
                                 <h3>{event.title}</h3>
                                 <p>{event.description}</p>
+                                {event.date ? (
+                                    <Countdown targetDate={event.date} />
+                                ) : (
+                                    <div className="coming-soon">Segera Hadir</div>
+                                )}
                                 <button onClick={() => openModal(event)} className="register-button">Daftar Sekarang</button>
                             </div>
                         </div>
@@ -252,50 +284,117 @@ const Testimonials = () => (
     </section>
 );
 
-const Consultation = () => (
-    <section id="consultation" className="section">
-        <div className="consultation-container">
-            <h2>{content.consultation.title}</h2>
-            <p>{content.consultation.subtitle}</p>
-            <form className="consultation-form">
-                <input type="text" placeholder={content.consultation.fields.name} />
-                <input type="text" placeholder={content.consultation.fields.whatsapp} />
-                <input type="date" placeholder={content.consultation.fields.date} />
-                <select defaultValue="">
-                    <option value="" disabled>{content.consultation.fields.time}</option>
-                    {content.consultation.timeOptions.map(time => <option key={time} value={time}>{time}</option>)} 
-                </select>
-                <textarea placeholder={content.consultation.fields.problem}></textarea>
-                <button type="submit" className="buy-button">{content.consultation.buttonText}</button>
-            </form>
-        </div>
-    </section>
-);
+const Consultation = () => {
+    const [consultationData, setConsultationData] = useState({
+        name: '',
+        whatsapp: '',
+        date: '',
+        time: '',
+        problem: ''
+    });
+
+    const [testimonialData, setTestimonialData] = useState({
+        name: '',
+        source: '',
+        message: ''
+    });
+
+    const handleConsultationChange = (e) => {
+        const { name, value } = e.target;
+        setConsultationData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleTestimonialChange = (e) => {
+        const { name, value } = e.target;
+        setTestimonialData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleConsultationSubmit = (e) => {
+        e.preventDefault();
+        const adminWhatsApp = '6287884164377';
+        const message = `PENGAJUAN KONSULTASI BARU:\n\nNama: ${consultationData.name}\nNo. WhatsApp: ${consultationData.whatsapp}\nTanggal: ${consultationData.date}\nWaktu: ${consultationData.time}\nPermasalahan: ${consultationData.problem}`;
+        const whatsappUrl = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    };
+
+    const handleTestimonialSubmit = (e) => {
+        e.preventDefault();
+        const adminWhatsApp = '6287884164377';
+        const message = `TESTIMONI BARU:\n\nNama: ${testimonialData.name}\nAsal: ${testimonialData.source}\n\nPesan: ${testimonialData.message}`;
+        const whatsappUrl = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    };
+
+    return (
+        <section id="consultation" className="section">
+            <div className="consultation-section-container">
+                <div className="consultation-column">
+                    <div className="consultation-container">
+                        <h2>{content.consultation.title}</h2>
+                        <p>{content.consultation.subtitle}</p>
+                        <form onSubmit={handleConsultationSubmit} className="consultation-form">
+                            <input type="text" name="name" placeholder={content.consultation.fields.name} value={consultationData.name} onChange={handleConsultationChange} required />
+                            <input type="tel" name="whatsapp" placeholder={content.consultation.fields.whatsapp} value={consultationData.whatsapp} onChange={handleConsultationChange} required />
+                            <input type="date" name="date" placeholder={content.consultation.fields.date} value={consultationData.date} onChange={handleConsultationChange} required />
+                            <select name="time" value={consultationData.time} onChange={handleConsultationChange} required>
+                                <option value="" disabled>{content.consultation.fields.time}</option>
+                                {content.consultation.timeOptions.map(time => <option key={time} value={time}>{time}</option>)} 
+                            </select>
+                            <textarea name="problem" placeholder={content.consultation.fields.problem} value={consultationData.problem} onChange={handleConsultationChange} required></textarea>
+                            <button type="submit" className="buy-button">{content.consultation.buttonText}</button>
+                        </form>
+                    </div>
+                </div>
+                <div className="testimonial-column">
+                    <div className="consultation-container">
+                        <h2>{content.testimonial_form.title}</h2>
+                        <p>{content.testimonial_form.subtitle}</p>
+                        <form onSubmit={handleTestimonialSubmit} className="consultation-form">
+                            <input type="text" name="name" placeholder={content.testimonial_form.fields.name} value={testimonialData.name} onChange={handleTestimonialChange} required />
+                            <input type="text" name="source" placeholder={content.testimonial_form.fields.source} value={testimonialData.source} onChange={handleTestimonialChange} required />
+                            <textarea name="message" placeholder={content.testimonial_form.fields.message} value={testimonialData.message} onChange={handleTestimonialChange} required></textarea>
+                            <button type="submit" className="buy-button">{content.testimonial_form.buttonText}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
 
 const Footer = () => (
     <footer className="footer">
         <div className="footer-container">
             <div className="footer-content">
-                <div className="footer-section">
-                    <h3>Navigasi</h3>
-                    <a href="#about">Profil</a>
-                    <a href="#book">Buku</a>
-                    <a href="#events">Acara</a>
+                <div className="footer-section footer-brand">
+                    <h3>Bagus Baraja</h3>
+                    <p>{content.footer.tagline}</p>
                 </div>
                 <div className="footer-section">
-                    <h3>Jelajahi</h3>
-                    <a href="#gallery">Galeri</a>
-                    <a href="#testimonials">Testimoni</a>
-                    <a href="#consultation">Konsultasi</a>
+                    <h3>Kontak</h3>
+                    <a href={`mailto:${content.profile.email}`} className="contact-item">
+                        <SocialIcon name="email" />
+                        <span>{content.profile.email}</span>
+                    </a>
+                    <a href={`tel:${content.profile.phone}`} className="contact-item">
+                        <SocialIcon name="phone" />
+                        <span>{content.profile.phone}</span>
+                    </a>
                 </div>
                 <div className="footer-section">
-                    <h3>Connect</h3>
-                    <a href={`mailto:${content.profile.email}`}>{content.profile.email}</a>
-                    <a href={`tel:${content.profile.phone}`}>{content.profile.phone}</a>
+                    <h3>Ikuti Kami</h3>
+                    <div className="social-links">
+                        {content.profile.socials.map(social => (
+                            <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
+                                <SocialIcon name={social.name} />
+                            </a>
+                        ))}
+                    </div>
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>&copy; 2025 Gus Baraja. All rights reserved.</p>
+                <p>&copy; 2025 Rahasia Keajaiban Doa. All rights reserved.</p>
+                <a href="#home" className="back-to-top">Kembali ke Atas &uarr;</a>
             </div>
         </div>
     </footer>

@@ -1,6 +1,7 @@
 {
   "hero": {
-    "title": "RAHASIA KEAJAIBAN DOA"
+    "title": "RAHASIA KEAJAIBAN DOA",
+    "subtitle": "Dipersembahkan oleh : Bagus Baraja"
   },
   "profile": {
     "name": "Bagus Baraja",
@@ -61,26 +62,6 @@
       { "image": "/images/seminar-sby.jpg", "caption": "Seminar 'Temu Jiwa' di Surabaya" }
     ]
   },
-  "testimonials": {
-    "title": "APA KATA MEREKA",
-    "items": [
-      {
-        "name": "Ahmad S.",
-        "feedback": "\"Ilmu yang diajarkan Bagus Baraja benar-benar mengubah cara pandang saya terhadap rezeki. Alhamdulillah, setelah ikut kelasnya, pintu rezeki terasa lebih mudah terbuka.\"",
-        "source": "Peserta Webinar"
-      },
-      {
-        "name": "Dewi K.",
-        "feedback": "\"Saya dulu penuh dengan kecemasan dan ketakutan. Melalui bimbingan di Pesantren Jiwa, saya menemukan ketenangan yang selama ini saya cari. Terima kasih, Gus.\"",
-        "source": "Alumni Pesantren Jiwa"
-      },
-      {
-        "name": "Budi P.",
-        "feedback": "\"Awalnya ragu, tapi setelah konsultasi privat, masalah bisnis saya yang macet berbulan-bulan akhirnya menemukan titik terang. Luar biasa.\"",
-        "source": "Klien Konsultasi"
-      }
-    ]
-  },
   "consultation": {
     "title": "KONSULTASI LANGSUNG DENGAN BAGUS BARAJA",
     "subtitle": "JADWALKAN KONSULTASI ANDA",
@@ -103,7 +84,7 @@
     "subtitle": "Bagikan pengalaman Anda bersama kami",
     "fields": {
       "name": "Nama Anda",
-      "source": "Asal (Contoh: Peserta Webinar)",
+      "source": "Asal (Contoh: Peserta Webinar, Alumni Bootcamp, Peserta Privat)",
       "message": "Tuliskan testimoni Anda di sini..."
     },
     "buttonText": "Kirim Testimoni"

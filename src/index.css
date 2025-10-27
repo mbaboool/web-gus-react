@@ -170,7 +170,6 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
     height: 100%;
     position: absolute;
     transform-style: preserve-3d;
-    animation: rotation 75s infinite linear;
 }
 
 #carousel-3d:hover {
@@ -247,7 +246,24 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
 .consultation-container { max-width: 100%; width: 100%; }
 .consultation-form { display: flex; flex-direction: column; gap: 15px; margin-top: 2rem; text-align: left; }
 .consultation-form input, .consultation-form select, .consultation-form textarea { width: 100%; padding: 15px; border-radius: 8px; border: 1px solid #444; background: #2a2a2a; color: #fff; font-family: 'Lato', sans-serif; font-size: 1rem; }
-.consultation-form textarea { min-height: 150px; resize: none; }
+.consultation-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: -0.75rem;
+    margin-bottom: 1rem;
+}
+
+.submit-message {
+    margin-top: 15px;
+    color: #4caf50;
+    font-weight: bold;
+}
 .consultation-form select:invalid { color: #888; }
 
 /* Footer */
@@ -503,4 +519,30 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
 @keyframes rotation {
     from { transform: rotateY(0deg); }
     to { transform: rotateY(360deg); }
+}
+
+.submit-message {
+    margin-top: 15px;
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.error-message {
+    color: #f44336;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.error {
+    border-color: #f44336 !important;
+    box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2) !important;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #ccc;
+    margin-top: -1.5rem;
+    margin-bottom: 2rem;
 }
